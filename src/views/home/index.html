@@ -25,14 +25,35 @@
         </div>
     </main>    
 
+
+    <div class="modal fade" id="add-my-list" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modal-title"></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modal-body">
+                
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Watching</button>
+                    <button type="button" class="btn btn-success">Finished</button>
+                    <button type="button" class="btn btn-warning">On-hold</button>
+                    <button type="button" class="btn btn-danger">Dropped</button>
+                    <button type="button" class="btn btn-secondary">Plan to watch</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="./../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/jikanAnimeClient.js"></script>
+    
     <script src="../shared/js/animeThumb.js"></script>
     
     <script src="../search/renderer.js"></script>
 
     <script src="js/sidebar.js"></script>
-    <script src="js/jikanAnimeClient.js"></script>
-
-
 </body>
 </html>

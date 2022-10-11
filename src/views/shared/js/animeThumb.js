@@ -1,10 +1,12 @@
+const modalAddToList = new bootstrap.Modal('#add-my-list', {});
+
 function renderAnimeThumb(container, obj) {
-    //Por algum motivo a pesquisa trás alguns resultados invalidos com essa imagem
+    //Por algum motivo a pesquisa trás alguns resultados inválidos com essa imagem
     if(obj.images.jpg.image_url === 'https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png') return;
 
     container.innerHTML += `
 
-        <div class="bg-primary rounded p-2 gap-2 d-flex flex-column position-relative justify-content-center align-items-center overflow-hidden">
+        <div id="anime-${obj.mal_id}" class="thumb bg-primary rounded p-2 gap-2 d-flex flex-column position-relative justify-content-center align-items-center overflow-hidden" onclick="openModal(${obj.mal_id})">
             <img src="${obj.images.jpg.image_url}">
             <div class="thumb-body position-absolute start-0 end-0 top-0 bottom-0 bg-primary opacity-0 p-3 overflow-auto">
                 <h6 class="text-center text-light mb-1">${obj.title}</h6>
@@ -32,7 +34,6 @@ function renderAnimeThumb(container, obj) {
 
 
                 ${
-
                     obj.score != null ?
                         `<div class="d-flex flex-row align-items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill text-light me-1" viewBox="0 0 16 16">
@@ -55,7 +56,6 @@ function renderAnimeThumb(container, obj) {
 
                         <hr class="text-light">`
                     : ''
-
                 }
 
                 ${
@@ -96,8 +96,20 @@ function renderAnimeThumb(container, obj) {
         </div>
         
     `;
+
+
+    
 }
 
 function clearRendererAnimesThumb(container){
     container.innerHTML = '';
+}
+
+function openModal(id) {
+    getAnimeById(id).then((anime) => {
+        document.querySelector('#modal-title').innerHTML = anime.data.title;
+        document.querySelector('#modal-body').innerHTML = `Do you want to add ${anime.data.title} to which list?`;
+        document.querySelector('#add-my-list').setAttribute('anime_id', id);
+        modalAddToList.show();
+    });
 }

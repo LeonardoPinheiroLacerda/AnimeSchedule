@@ -86,3 +86,6 @@
     background: var(--bs-dark-dark);
 }
 
+.modal-dialog{
+    min-width: 750px
+}

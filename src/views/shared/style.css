@@ -1,12 +1,3 @@
-.thumb{
-    width: 266px;
-    height: 322px;
-}
-
-.thumb img{
-    z-index: 1;
-}
-
 .thumb-body h6{
     -webkit-box-orient: vertical;
     display: -webkit-box;
