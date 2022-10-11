@@ -1,0 +1,40 @@
+.thumb{
+    width: 266px;
+    height: 322px;
+}
+
+.thumb img{
+    z-index: 1;
+}
+
+.thumb-body h6{
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-height: 16px;
+    margin: 0;
+    overflow: hidden;
+    max-height: 50px;
+}
+
+.thumb-body{
+    transition: .3s opacity;
+    cursor: pointer
+}
+
+.thumb-body:hover{
+    opacity: .95 !important;
+}
+
+.badge{
+    margin: 2px
+}
+
+
+/*Scroll bar*/
+
+/* width */
+.thumb-body::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}

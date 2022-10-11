@@ -1,0 +1,88 @@
+:root{
+    --sidebar-width: 10rem;
+    --title-bar-height: 2rem;
+}
+
+* {
+    font-size: 16px;
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+#nav {
+    min-width: var(--sidebar-width);
+    max-width: var(--sidebar-width);
+}
+
+#nav-body {
+    overflow: auto;
+}
+
+.square-element {
+    border-radius: 0;
+}
+
+.btn.active {
+    border-color: var(--bs-btn-active-bg);
+}
+
+.btn:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+#title-bar , #title-bar-spacer{
+    height: var(--title-bar-height);
+    width: 100%;
+
+    user-select: none;
+    -webkit-app-region: drag;
+
+    z-index: 99;
+}
+
+#title-bar-text{
+    font-size: 0.8rem;
+    width: calc(100% - 140px);
+}
+
+#main {
+    height: calc(100vh - var(--title-bar-height));
+}
+
+#content {
+    width: calc(100% - var(--sidebar-width));
+}
+
+/*Scroll bar*/
+
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background-color: var(--bs-gray-900);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--bs-gray-500);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--bs-gray-700);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:active {
+    background: var(--bs-gray-500);
+}
+
+::-webkit-scrollbar-corner {
+    background: var(--bs-dark-dark);
+}
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sauce Ripper</title>
+    <link rel="stylesheet" href="./../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../shared/style.css">
+</head>
+<body>
+    
+    <div id="title-bar" class="bg-dark d-flex">
+        <label id="title-bar-text" class="text-light mx-2 my-auto text-truncate overflow-hidden">Anime schedule</label>
+    </div>
+
+    <main id="main" class="d-flex flex-row w-100">
+        <nav id="nav" class="d-flex flex-column bg-dark h-100">
+            <div id="nav-body" class="d-flex flex-column flex-grow-1 mb-2 w-100">
+                <button id="btn-search" class="btn btn-primary square-element" onclick="openSearch()">Search</button>
+                <button id="btn-seasons" class="btn btn-primary square-element" onclick="openSeasons()">Seasons</button>
+                <button id="btn-my-lists" class="btn btn-primary square-element" onclick="openMyLists()">My lists</button>
+            </div>
+        </nav>
+        <div id="content" class="bg-secondary h-100 d-flex flex-grow-1 flex-column overflow-auto">
+        </div>
+    </main>    
+
+    <script src="./../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../shared/js/animeThumb.js"></script>
+    
+    <script src="../search/renderer.js"></script>
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/jikanAnimeClient.js"></script>
+
+
+</body>
+</html>
