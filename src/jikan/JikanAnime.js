@@ -7,10 +7,10 @@ class JikanAnime {
             url: `https://api.jikan.moe/v4/anime/${id}`
         });
     }
-    getAnimeBySearch(q){
+    getAnimeBySearch(q, type = 'any', rating = 'any', status = 'any'){
         return axios({
             method: 'GET',
-            url: `https://api.jikan.moe/v4/anime/?q=${q}&type=tv&limit=1000`
+            url: `https://api.jikan.moe/v4/anime/?q=${q}&type=${type}&rating=${rating}&status=${status}&order_by=score&sort=desc`
         })
     }
 }

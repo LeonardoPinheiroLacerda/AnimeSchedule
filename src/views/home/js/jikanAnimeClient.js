@@ -8,11 +8,11 @@ function getAnimeById(id) {
 }
 
 
-function searchAnime(q) {
+function searchAnime(q, type, rating, status) {
     return new Promise(resolve => {
         jikanAnime.RecieveSearch((event, data) => {
             resolve(data);
         })
-        jikanAnime.RequestSearch(q);
+        jikanAnime.RequestSearch({q, type, rating, status});
     })
 }

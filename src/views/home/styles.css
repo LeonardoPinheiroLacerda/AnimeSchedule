@@ -89,3 +89,21 @@
 .modal-dialog{
     min-width: 750px
 }
+
+
+#filters {
+    max-height: 0px;
+    transition: max-height .75s;
+}
+
+#filters.collapsed {
+    max-height: 400px !important;
+}
+
+#filter-collapse-button svg{
+    transition: .75s;
+}
+
+#filter-collapse-button.collapsed svg{
+    transform: rotate(180deg);
+}

@@ -5,7 +5,7 @@ contextBridge.exposeInMainWorld('jikanAnime', {
     RequestById: (id)       => ipcRenderer.send('request:anime-by-id', id),
     RecieveById: (callback) => ipcRenderer.on('send:anime-by-id', callback),
 
-    RequestSearch: (id)       => ipcRenderer.send('request:anime-search', id),
+    RequestSearch: (obj)       => ipcRenderer.send('request:anime-search', obj),
     RecieveSearch: (callback) => ipcRenderer.on('send:anime-search', callback),
 
 });
