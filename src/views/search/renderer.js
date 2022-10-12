@@ -12,14 +12,14 @@ function renderSearch(container){
                 <div class="d-flex flex-row mx-3">
 
                     <div class="form-check mx-1">
-                        <input class="form-check-input" type="radio" name="type" id="type-any" value="any" checked>
+                        <input class="form-check-input" type="radio" name="type" id="type-any" value="any">
                         <label class="form-check-label text-light" for="type-any">
                             Any
                         </label>
                     </div>
 
                     <div class="form-check mx-1">
-                        <input class="form-check-input" type="radio" name="type" id="type-tv" value="tv">
+                        <input class="form-check-input" type="radio" name="type" id="type-tv" value="tv" checked>
                         <label class="form-check-label text-light" for="type-tv">
                             TV
                         </label>
@@ -152,7 +152,7 @@ function renderSearch(container){
                     <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
                 </svg>
             </button>    
-        <div>
+        </div>
         <div class="d-flex flex-row flex-wrap gap-3 p-3" id="animes">
         </div>
     `;
@@ -177,6 +177,8 @@ function renderSearch(container){
         const status = document.querySelector('input[name="status"]:checked').value;
         const rating = document.querySelector('input[name="rating"]:checked').value;
 
+        showSpinner();
+
         searchAnime(q, type, rating, status, page).then(({data, pagination}) => {
             clearRendererAnimesThumb(animesContainer);
 
@@ -185,6 +187,8 @@ function renderSearch(container){
             });
 
             renderPaginator(animesContainer, pagination, {q, type, rating, status, page});
+
+            hideSpinner();
         })
     }
 

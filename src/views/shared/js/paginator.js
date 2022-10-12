@@ -16,18 +16,22 @@ function renderPaginator(container, pagination, q) {
         if(e.target.classList.contains('disabled')) return;
         q.page -= 1;
         search(q, container);
+        window.scrollTo(0,0);
     });
 
     next.addEventListener('click', (e) => {
         if(e.target.classList.contains('disabled')) return;
         q.page += 1;
         search(q, container);
+        window.scrollTo(0,0);
     });
 }
 
 function search(query, container) {
 
     const {type, rating, status, q, page} = query;
+
+    showSpinner();
 
     searchAnime(q, type, rating, status, page).then(({data, pagination}) => {
         clearRendererAnimesThumb(container);
@@ -37,6 +41,8 @@ function search(query, container) {
         });
 
         renderPaginator(container, pagination, {q, type, rating, status, page});
+
+        hideSpinner();
     });
 
 }
