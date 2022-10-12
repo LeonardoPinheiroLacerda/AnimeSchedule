@@ -8,10 +8,10 @@ ipcMain.on('request:anime-by-id', async (event, data) => {
 
 
 ipcMain.on('request:anime-search', async (event, data) => {
-    const {q, type, status, rating} = data;
+    let {q, type, status, rating, page} = data;
 
     console.log("search: ", data);
 
-    const animes = await JikanAnime.getAnimeBySearch(q, type, rating, status);
+    const animes = await JikanAnime.getAnimeBySearch(q, type, rating, status, page);
     event.sender.send('send:anime-search', animes.data);
 });

@@ -146,9 +146,6 @@ function renderSearch(container){
 
                 </div>
 
-
-                
-
             </div>
             <button class="btn btn-secondary w-100 square-element" id="filter-collapse-button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
@@ -174,18 +171,20 @@ function renderSearch(container){
 
 
 
-    function search(q) {
+    function search(q, page = 1) {
 
         const type = document.querySelector('input[name="type"]:checked').value;
         const status = document.querySelector('input[name="status"]:checked').value;
         const rating = document.querySelector('input[name="rating"]:checked').value;
 
-        searchAnime(q, type, rating, status).then(({data}) => {
+        searchAnime(q, type, rating, status, page).then(({data, pagination}) => {
             clearRendererAnimesThumb(animesContainer);
 
             data.forEach(anime => {
                 renderAnimeThumb(animesContainer, anime)
-            })
+            });
+
+            renderPaginator(animesContainer, pagination, {q, type, rating, status, page});
         })
     }
 
