@@ -27,9 +27,11 @@ function renderPaginator(container, pagination, q) {
     });
 }
 
-function search(query, container) {
+async function search(query, container) {
 
     const {type, rating, status, q, page} = query;
+
+    if(!(await checkConnection())) return;
 
     showSpinner();
 

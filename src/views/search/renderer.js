@@ -171,11 +171,13 @@ function renderSearch(container){
 
 
 
-    function search(q, page = 1) {
+    async function search(q, page = 1) {
 
         const type = document.querySelector('input[name="type"]:checked').value;
         const status = document.querySelector('input[name="status"]:checked').value;
         const rating = document.querySelector('input[name="rating"]:checked').value;
+
+        if(!(await checkConnection())) return;
 
         showSpinner();
 
@@ -189,7 +191,7 @@ function renderSearch(container){
             renderPaginator(animesContainer, pagination, {q, type, rating, status, page});
 
             hideSpinner();
-        })
+        });
     }
 
 

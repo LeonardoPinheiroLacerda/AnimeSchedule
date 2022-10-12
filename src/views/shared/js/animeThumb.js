@@ -105,11 +105,16 @@ function clearRendererAnimesThumb(container){
     container.innerHTML = '';
 }
 
-function openModal(id) {
+async function openModal(id) {
+    if(!(await checkConnection())) return;
+
+    showSpinner();
+
     getAnimeById(id).then((anime) => {
         document.querySelector('#modal-title').innerHTML = anime.data.title;
         document.querySelector('#modal-body').innerHTML = `Do you want to add ${anime.data.title} to which list?`;
         document.querySelector('#add-my-list').setAttribute('anime_id', id);
+        hideSpinner();
         modalAddToList.show();
     });
 }
