@@ -2,6 +2,7 @@ const {app, BrowserWindow} = require('electron');
 const path = require('path');
 
 require('./src/ipcMain/animeIpcMain');
+require('./src/ipcMain/seasonIpcMain');
 require('./src/ipcMain/loggerIpcMain');
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
